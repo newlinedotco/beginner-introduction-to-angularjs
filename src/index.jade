@@ -1,0 +1,1030 @@
+!!! 5
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    title Introduction to AngularJS
+
+    //- Check out 'src/bower_components/prism/themes/' for available themes
+    link(rel='stylesheet', type='text/css', href='bower_components/prism/themes/prism-okaidia.css')
+    link(href='http://fonts.googleapis.com/css?family=Permanent+Marker|Crafty+Girls|Bubbler+One|Open+Sans', rel='stylesheet', type='text/css')
+    link(rel='stylesheet', type='text/css', href='styles/main.css')
+
+  body(ng-app="myApp")
+   
+    article
+
+      section.intro
+        h1 Introduction to AngularJS
+        .byline
+          | Ari Lerner
+          | ari@fullstack.io
+
+      section.author
+        h2.byline Ari Lerner
+        ul
+          li Co-founder of Fullstack.io
+          li Co-author of The Rails Way 4
+          li Author of ng-book, ng-newsletter.com
+          li and Riding Rails on AngularJS
+          li Mentor at HackBright, Dev Bootcamp
+          li Teacher at HackReactor
+          li Large scale stuff at AT&T
+
+      section.html_old
+        h1 HTML is old
+        h3 Older than some of us
+
+      section
+        code.language-markup
+          pre.
+            <html>
+              <head>
+                <title>Hello World</title>
+              </head>
+              <body>
+                <h1 class="notice">Static HTML</h1>
+                <button>Click me</button>
+              </body>
+            </html>
+
+      section
+        h2 Still works
+
+      section.static
+        h2 but it's still static markup
+
+      section.webapp
+        h2 webapp?
+
+      section.interactive_1
+        h2 Interaction
+
+      section.interactive_2
+        h2.add How we add
+        h2 Interaction
+        h2.today today?
+
+      section
+        h2 javascript
+        code.language-javascript
+          pre.
+            var content = 
+              document.getElementById('content')[0],
+              newDiv = document.createElement("div");
+            // Do interesting things to
+            // the newDiv here
+            content.appendChild(newDiv);
+
+      section
+        h3 if you're really badass
+
+      section
+        h2 jQuery
+        code.language-javascript
+          pre.
+            $("div.animated").on('click', function(evt) {
+              $(this).appendChild("<div></div>");
+            });
+
+      section
+        h2 An imperative wrapper around DOM manipulation
+
+      section
+        h2 not a webapp maker
+        h3 
+          | when all you have is jQuery, everything
+          | looks like a DOM to manipulate
+
+      section
+        h2 What's wrong with this?
+        .bullet
+        h3.bullet tight coupling
+        h3.bullet structureless codebase
+        h3.bullet low-level interaction
+
+      section
+        h1 How unsettling!
+
+      section
+        h1 How rudimentary!
+
+      section.different
+        h2 What about...
+
+      section.backbone_2
+        h2 backbone.js
+
+      section.backbone
+        h2 backbone.js
+        span.the_good the good
+        ul
+          li Adds structure
+
+      section.backbone_2
+        h2 backbone.js
+        span.the_bad the bad
+        ul
+          li tight coupling
+          li still dependent upon jquery
+          li still requires a LOT of boilerplate
+
+      section
+        h2 How <i>should</i> we do it then?
+
+      section
+        h2 What if we <span>reinvented</span> HTML
+
+      section
+        h2 Enter <span>AngularJS</span>
+
+      section.toc
+        h2 Table of Contents
+        ol.left_text
+          li What is angular
+          li Our first angular app
+          li Scope, controllers, views
+          li Directives
+          li Routing
+          li Promises
+          li XHR
+          li Testing
+
+      section.angularjs_is
+        h2 What is angular?
+
+      section
+        h2 A MVW front-end framework
+
+      section.fast
+        h2 Fast
+        h4 in development and applications
+
+      section.supported_by
+        h2 Sponsored by Google
+        h4 and in-production at many products
+
+      section.cost_efficient
+        h2 Cost efficient
+        h4 for development and production applications
+
+      section.test_driven
+        h2 Built from the start with testing in-mind
+        h4 with fantastic built-in tools for testing
+
+      section.community
+        h2 Highly active community
+        h4 with many open-source components
+
+      section.free
+        h2 Completely free
+        h4 seriously, MIT licensed
+
+      section.separation
+        h2 Emphasizes separation of concerns
+
+      section
+        h2 HTML is <span>declarative</span>
+
+      section
+        h2 AngularJS is <span>declarative</span>
+
+      section
+        h2 Let's look at some code
+
+      section
+        <h1 class="notice">Static HTML</h1>
+        <button>Click me</button>
+
+      section
+        code.language-markup
+          pre.
+            <h1 class="notice">Static HTML</h1>
+            <button>Click me</button>
+
+      section
+        h2 Elements
+        code.language-markup
+          pre.
+            <h1></h1>
+            <button></button>
+
+      section
+        h2 Method calls
+        code.language-javascript
+          pre.
+            sayHello("Static HTML")
+            buttonClicked();
+
+      section
+        h2 Attributes
+        code.language-javascript
+          pre.
+            class="notice"
+
+      section.args
+        h2 Arguments
+        code.language-javascript
+          pre.
+            sayHello("Static HTML")
+
+      section.ide
+        h2 Development environment
+        ol.left_text
+          li Text editor (or a fancy IDE)
+          li Web browser
+          li Python (for testing)
+
+      section.editor
+        h2 Text editor
+
+      section.editor
+        img(src="images/sublime_text.png")
+
+      section.editor
+        img(src="images/textmate.png")
+
+      section.editor
+        img(src="images/vim.png")
+
+      section.editor
+        img(src="images/webstorm.png")
+
+      section.browser
+        h2 Web browser
+
+      section
+        img(src="images/chrome.png")
+
+      section
+        img(src="images/safari.png")
+
+      section.first_app
+        h2 Our first angular app
+
+      section(ng-non-bindable).first_app
+        code.language-markup
+          pre.
+            <!doctype html>
+            <html>
+              <head>
+                <title>First app</title>
+                <script src="angular.min.js"></script>
+              </head>
+              <body ng-app>
+                <div>
+                  <label>Name:</label>
+                  <input type="text" 
+                        ng-model="name" 
+                        placeholder="Enter a name here" />
+                  <hr>
+                  <h1>Hello {{ name }}!</h1>
+                </div>
+              </body>
+            </html>
+
+      section(ng-app="myApp").first_app
+        input(type="text", ng-model="name", placeholder="Enter a name here")
+        hr &nbsp;
+        h1 Hello {{ name }}!
+
+      section
+        code.language-markup
+          pre.
+            <body ng-app>
+
+      section
+        code.language-markup
+          pre.
+            <input type="text" 
+                  ng-model="name" 
+                  placeholder="Enter a name here" />
+
+      section
+        h2 What? No javascript?
+
+      section
+        h2 Unless you need more power (you will)
+
+      section
+        h2 Javascript
+        code.language-javascript
+          pre.
+            // Setter
+            angular.module('myApp', []);
+            // Getter
+            angular.module('myApp')
+
+      section(ng-non-bindable)
+        h2 Calling it
+        code.language-markup
+          pre.
+            <body ng-app="myApp">
+
+      section(ng-non-bindable)
+        h1 data-binding 
+        h2 and $scope
+
+      section(ng-non-bindable)
+        h3
+          | $scope is a special variable
+          | that both views and controllers
+          | have access to and can manipulate;
+          | It's the <em>glue</em> between the
+          | view and the controller.
+
+      section
+        h2 A <span>P</span>lain <span>O</span>ld <span>J</span>avascript <span>O</span>bject
+        h4 
+          | We can write simple javascript to interact
+          | with our $scope
+
+      section
+        h2 Oh yeah, and the $scope respects <span>hierarchy</span>
+
+      section(ng-non-bindable)
+        h2 Controllers
+
+      section(ng-non-bindable)
+        h3
+          | Controllers contain the behavior for our
+          | DOM elements and allow us to operate on
+          | the data, not the DOM itself
+
+      section
+        h2 
+          | Every controller instance
+          | gets its own $scope object
+
+      section
+        h2 
+          | This <em>$scope</em> is the 
+          | controller's Model object
+
+      section(ng-non-bindable)
+        h2 Controllers
+        code.language-javascript
+          pre.
+            angular.module('myApp')
+            .controller('DemoCtrl', function($scope) {
+              $scope.name = "Ari";
+            });
+
+      section(ng-non-bindable)
+        h2 Calling it
+        code.language-markup
+          pre.
+            <div ng-controller="DemoCtrl">
+              <h1>Hello {{ name }}</h1>
+            </div>
+
+      section
+        div(ng-controller="DemoCtrl")
+          h1 Hello {{ name }}
+
+      section(ng-non-bindable)
+        h2 Interaction
+        code.language-javascript
+          pre.
+            controller('DemoCtrl', function($scope) {
+              $scope.sayHello = function() {
+                alert("Hello " + $scope.name);
+              }
+            });
+
+      section(ng-non-bindable)
+        h2 Calling it
+        code.language-markup
+          pre.
+            <div ng-controller="DemoCtrl">
+              <button ng-click="sayHello()">
+                Say hello
+              </button>
+            </div>
+
+      section
+        div(ng-controller="DemoCtrl")
+          button(ng-click="sayHello()") Say hello
+
+      section
+        h2 Hierarchy?
+
+      section(ng-non-bindable)
+        h2 Hierarchy in HTML
+
+      section
+        code.language-markup
+          pre.
+            <html>
+              <head></head>
+              <body>
+                <h1></h1>
+              </body>
+            </html>
+
+      section
+        h2 Scopes work the same way
+
+      section(ng-non-bindable)
+        code.language-markup
+          pre.
+            <div ng-controller="ParentCtrl">
+              <div ng-controller="ChildCtrl">
+                <h1>Child's name: {{ name }}</h1>
+                <h1>Child's location: {{ geo }}</h1>
+              </div>
+              <h1>Parent's name: {{ name }}</h1>
+              <h1>Parent's location: {{ geo }}</h1>
+            </div>
+
+      section(ng-non-bindable)
+        h2 With the controllers:
+        code.language-javascript
+          pre.
+            angular.module('myApp')
+            .controller('ParentCtrl', function($scope) {
+              $scope.name = "Q";
+              $scope.geo = "San Francisco";
+            })
+            .controller('ChildCtrl', function($scope) {
+              $scope.name = "Ari";
+            });
+
+      section
+        div(ng-controller="ParentCtrl")
+          div(ng-controller="ChildCtrl")
+            h2 Child's name: {{ name }}
+            h2 Child's location: {{ geo }}
+          h2 Parent's name: {{ name }}
+          h2 Parent's location: {{ geo }}
+
+      section
+        h2 Views
+
+      section
+        h2 Just HTML
+
+      section(ng-non-bindable)
+        code.language-markup
+          pre.
+            <div ng-controller="DemoCtrl">
+              <h1>Hello {{ name }}</h1>
+            </div>
+
+      section(ng-non-bindable)
+        h2 Including directives and the {{ }}
+
+      section
+        h2 What the eff is a <span>directive</span>?
+
+      section(ng-non-bindable)
+        h3
+          | A directive is a <span>function</span>
+          | that is called on a DOM element
+
+      section(ng-non-bindable)
+        h2 Directives
+        code.language-markup
+          pre.
+            <div ng-controller="DemoCtrl">
+              <button ng-click="sayHello()">
+                Say hello
+              </button>
+              <input ng-model="name"
+                    type="text" />
+              <h1>Hello {{ name }}</h1>
+            </div>
+
+      section(ng-non-bindable)
+        h2 Directives
+        code.language-javascript
+          pre.
+            ng-controller="DemoCtrl"
+            ng-click="sayHello()"
+            ng-model="name"
+
+      section(ng-non-bindable)
+        h2 Directives
+        h3
+          | We can create our own too
+          | (but we'll come back to that)
+
+      section(ng-non-bindable)
+        h2 Built-in directives
+
+      section(ng-non-bindable)
+        h2 ng-controller
+        p.left_text
+          | The <span>ng-controller</span> is used to
+          | place a controller on to the DOM element
+
+      section(ng-non-bindable)
+        code.language-markup
+          pre.
+            <div ng-controller="DemoCtrl">
+              <input type="text"
+                  ng-model="name"
+                  placeholder="Name" />
+              Hello {{ name }}
+            </div>
+            <div ng-controller="DemoCtrl">
+              <input type="text"
+                  ng-model="name"
+                  placeholder="Name" />
+              Second {{ name }}
+            </div>
+
+      section
+        div(ng-controller="DemoCtrl",class="half")
+          input(type="text",ng-model="name",placeholder="Name")
+          div Hello {{ name }}
+        div(ng-controller="DemoCtrl",class="half")
+          input(type="text",ng-model="name",placeholder="Name")
+          div Second hello {{ name }}
+
+      section(ng-non-bindable)
+        h2 ng-click
+        p.left_text
+          | Use <span>ng-click</span> to specify a method 
+          | or expression to run on the 
+          | containing scope when the element 
+          | is clicked.
+
+      section(ng-non-bindable)
+        code.language-markup
+          pre.
+            <div ng-controller="DemoCtrl">
+              Click count: {{ count }}
+              <div ng-click="count=count+1">
+                Click on this div
+              </div>
+              <button ng-click="count=count+1">
+                Click on this button
+              </button>
+            </div>
+
+      section
+        div(ng-controller="DemoCtrl",ng-init="count=0")
+          | Click count: {{ count }}
+          div(ng-click="count=count+1")
+            | Click on this div
+          button(ng-click="count=count+1")
+            | Click on this button
+
+      section
+        h2 ng-repeat
+        p.left_text
+          | Use <span>ng-repeat</span> to iterate 
+          | over a collection and instantiate a 
+          | new template for each item in 
+          | the collection. Each item in the 
+          | collection is given it's own 
+          | template and it's own scope.
+
+      section(ng-non-bindable)
+        code.language-markup
+          pre.
+            <div ng-controller="DemoCtrl">
+              <table>
+                <tr><th>Name</th><th>Email</th></tr>
+                <tr ng-repeat="person in people">
+                  <td>{{ person.name }}</td>
+                  <td>{{ person.email }}</td>
+                </tr>
+              </table>
+            </div>
+
+      section
+        h3 Where <span>$scope.people</span> is:
+        code.language-javascript
+          pre.
+              $scope.people = [
+                {name: "Ari", email: "ari@fullstack.io" },
+                {name: "Nate", email: "nate@fullstack.io" }
+              ];
+
+      section
+        div(ng-controller="DemoCtrl")
+          table.left_text
+            thead
+              tr
+                th Name
+                th Email
+            tbody
+            tr(ng-repeat="person in people")
+              td {{ person.name }}
+              td {{ person.email }}
+
+      section
+        h2 ng-show/ng-hide
+        p.left_text
+          | We'll use <span>ng-show</span> and
+          | <span>ng-hide</span> to show and hide
+          | a DOM element based upon the expression
+          | provided and how it evaluates in the 
+          | angular scope.
+
+      section(ng-non-bindable)
+        code.language-markup
+          pre.
+            <div ng-controller="DemoCtrl">
+              <h1 ng-show="shouldShowDiv" 
+                  ng-click="shouldShowDiv=!shouldShowDiv">
+                    The h1 is showing
+              </h1>
+              <h2 ng-hide="shouldShowDiv" 
+                  ng-click="shouldShowDiv=!shouldShowDiv">
+                    The h2 is not hiding
+              </h2>
+            </div>
+
+      section
+        div(ng-controller="DemoCtrl",ng-init="shouldShowDiv=true")
+          h1(ng-show="shouldShowDiv",ng-click="shouldShowDiv=!shouldShowDiv")
+            | The h1 is showing
+          h2(ng-hide="shouldShowDiv",ng-click="shouldShowDiv=!shouldShowDiv")
+            | The h2 is not hiding
+
+      section
+        h3
+          | There are many more built-in and 
+          | community directives
+        ul
+          li ng-init
+          li ng-view
+          li ng-if
+          li ng-switch
+          li ng-class
+          li more...
+
+      section
+        h2 Expressions?
+
+      section
+        h3 Expressions are javascript functions
+
+      section
+        h3 Expressions are <span>kinda like</span> javascript functions
+
+      section
+        h3
+          | Expressions are executed in the context
+          | of <span>$scope</span> and have access
+          | to their properties
+        h3
+          | Can't do control flow, we don't get errors
+          | and they can evaluate with filters
+
+      section(ng-controller="DemoCtrl")
+        code.language-javascript
+          pre.
+            1 + 3             // 4
+            count = count + 1 // 1
+            12.90 | currency  // $12.90
+
+      section(ng-non-bindable)
+        h2 Most directives accept expressions
+        code.language-markup
+          pre.
+            <span ng-bind="{{ 1 + 4 }}"></span>
+            <div ng-show="count == 2">
+              The count is two
+            </div>
+
+      section(ng-controller="DemoCtrl", ng-init="count = 2")
+        span(ng-bind="{{ 1 + 4 }}")
+        div(ng-show="count == 2")
+          | The count is two
+
+      section
+        h1 Routing
+
+      section
+        h2 Any self-respecting single-page app needs multiple views
+
+      section
+        h2 Angular ships a router separately
+        code.language-bash
+          pre.
+            $ bower install angular-route
+
+      section
+        h2 Inject as a dependency
+        code.language-javascript
+          pre.
+            angular.module('myApp', ['ngRoute'])
+
+      section
+        h2 Defining routes
+        code.language-javascript
+          pre.
+            angular.module('myApp', ['ngRoute'])
+            .config(function($routeProvider) {
+              $routeProvider.when('/first', { 
+                template: '<h1>First route</h1>', 
+                controller: 'FirstCtrl' 
+              }).when('/second', {
+                template: '<h1>Second route</h1>', 
+                controller: 'SecondCtrl'
+              });
+            })
+
+      section(ng-non-bindable)
+        h2 Calling it
+        code.language-markup
+          pre.
+            <div ng-view></div>
+
+      section
+        span 
+          a(href="#/first") First
+        span
+          a(href="#/second") Second
+        //- div(ng-view="")
+
+      section(ng-non-bindable)
+        h2 Okay, wtf is <span>dependency injection</span>
+
+      section
+        h3
+          | Anything that has a dependency on other
+          | code (usually libraries) needs to know
+          | how to get the dependency. In ruby, we use 
+          | require, python uses import, java uses... 
+        h3
+          | Angular takes care of handling dependencies
+          | for us at run-time, which gives us a lot of
+          | power when running vs. testing
+
+      section
+        h3 Remember defining controllers?
+        code.language-javascript
+          pre.
+            angular.module('myApp')
+            .controller('DemoCtrl', function($scope) {
+              $scope.name = "Ari";
+            });
+
+      section
+        h3 function(<span>$scope</span>) {}
+
+      section
+        h3
+          | We can inject all of our dependencies
+          | in this way
+        h3 function(<span>$scope</span>, <span>$q</span>, <span>$http</span>) {}
+
+      section
+        h1 Super short intro to promises
+
+      section
+        h3
+          | Javascript generally suffers from callback
+          | hell and the case of the mysteriously
+          | disappearing errors
+
+      section
+        h2 Promises to the rescue
+
+      section
+        h3 
+          | A promise is a pointer to data that 
+          | will be fulfilled <span>eventually</span>
+
+      section
+        h3
+          | Promises are built into Angular
+
+      section
+        h3 Turn
+        code.language-javascript
+          pre.
+            $http.get('/users.json', function(data) {
+              // Handle successful request
+            }, function(error) {
+              // Handle errors here
+            });
+
+      section
+        h3 into
+        code.language-javascript
+          pre.
+            var val = $http.get('/users.json);
+            val.then(function(data) {
+              // Handle success here
+            });
+
+      section
+        h2
+          | Angular views update automatically with
+          | results of promises
+
+      section
+        h1 XHR
+
+      section
+        h2 Use data from around the web
+
+      section(ng-controller="DemoCtrl")
+        button(ng-click="getWeather()") Get weather
+        div(ng-show="weather")
+          p
+            h4 High: {{ weather.temp.max }}
+            h4 Low: {{ weather.temp.min }}
+            h4 Humidity: {{ weather.humidity }}
+            h4 {{ weather.weather[0].description | uppercase }}
+
+      section
+        h2 <span>$http</span>
+        p
+          | The <span>$http</span> service provides
+          | high-level access to the browser's
+          | raw XMLHttpRequest object.
+
+      section
+        h2 We can make requests of all sorts
+        ul
+          li GET
+          li POST
+          li PUT
+          li JSONP
+          li DELETE
+          li HEAD
+
+      section
+        h2 <span>$http</span> returns a promise
+
+      section
+        h3 Injecting <span>$http</span>
+        code.language-javascript
+          pre.
+            angular.module('myApp')
+            .controller(function($scope, $http) {
+              // Call to the web here
+            });
+
+      section
+        h2 <span>$http</span>
+        code.language-javascript
+          pre.
+            $scope.getWeather = function() {
+              var url = "http://api.openweathermap.org/data/2.5/"+
+                        "forecast/daily?mode=json" +
+                        "&units=imperial&cnt=1" +
+                        "&callback=JSON_CALLBACK" +
+                        "&q="
+              $http({
+                method: 'JSONP',
+                url: url + "San Francisco, CA"
+              }).success(function(data, status) {
+                $scope.weather = data.list[0];
+              }).error(function(data, status) {
+                $scope.error = data; // Be nice and handle errors
+              });
+            }
+
+      section
+        h1 Services
+
+      section
+        h2 Services are
+        ul
+          li Singleton objects loaded once per-app
+          li Collections of like-methods
+          li A good idea
+
+      section
+        h2 <span>$http</span> is a service, for example
+
+      section
+        h2 We can create our own too!
+        code.language-javascript
+          pre.
+            angular.module('myApp')
+            .factory('MyService', function() {
+              var service = {
+                sayHello: function() {
+                  return "Hello";
+                }
+              };
+              return service;
+            });
+
+      section
+        h3
+          | The <span>MyService</span> is created
+          | only once and we can call any function
+          | that we define on it.
+
+      section
+        h3 Inject it into our controller
+        code.language-javascript
+          pre.
+            angular.moduel('myApp')
+            .controller('HomeCtrl', function($scope, MyService) {
+              $scope.greeting = MyService.sayHello();
+            });
+
+      section(ng-non-bindable)
+        h3 Use it in the view
+        code.language-markup
+          pre.
+            <div ng-controller="HomeCtrl">
+              <h1>{{ greeting }} Ari</h1>
+            </div>
+
+      section
+        div(ng-controller="ServicesCtrl")
+          h1 {{ greeting }} Ari
+
+      section
+        h1 Testing
+
+      section
+        h2 Angular has fantastic support for testing
+
+      section
+        h3 Grab the <span>karma</span> tool
+        code.language-bash
+          pre.
+            $ npm install -g karma
+            $ npm install -g karma-jasmine
+            $ npm install --save-dev karma-chrome-launcher karma-ng-scenario
+
+      section
+        h3 Set up testing
+        code.language-bash
+          pre.
+            $ karma init test/karma.conf.js
+
+      section
+        h2 Jasmine
+        p
+          | Jasmine is a bdd framework for javascript
+          | and works out-of-the-box with karma.
+        p
+          | Jasmine provides expectations, matchers,
+          | and a great testing framework
+
+      section
+        h2 End-to-end testing
+
+      section
+        code.language-javascript
+          pre.
+            describe('Test our view', function() {
+              // Test that our browser loads
+            });
+
+      section
+        h3 Before every test, navigate to /
+        code.language-javascript
+          pre.
+            beforeEach(function() {
+              // Navigate home
+              browser().navigateTo('/');
+            });
+
+      section
+        h3 Set an expectation that there's a form
+        code.language-javascript
+          pre.
+            it('should load', function() {
+              expect(
+                element('body').html()
+              ).toContain('form');
+            });
+
+      section
+        h2 There's a lot to learn
+
+      section
+        h2 yeoman
+        code.language-bash
+          pre.
+            $ npm install -g yo
+            $ npm install -g generator-angular
+            $ mkdir myapp && cd $_
+            $ yo angular
+
+      section
+        h1 Questions?
+
+      section
+        h1 Thanks!
+
+    script(src='bower_components/bespoke.js/dist/bespoke.min.js')
+    script(src='bower_components/bespoke-bullets/dist/bespoke-bullets.min.js')
+    script(src='bower_components/bespoke-scale/dist/bespoke-scale.min.js')
+    script(src='bower_components/bespoke-hash/dist/bespoke-hash.min.js')
+    script(src='bower_components/bespoke-progress/dist/bespoke-progress.min.js')
+    script(src='bower_components/bespoke-state/dist/bespoke-state.min.js')
+    script(src='bower_components/prism/prism.js')
+    script(src='bower_components/prism/components/prism-ruby.js')
+    script(src='bower_components/prism/components/prism-markup.js')
+    script(src='bower_components/prism/components/prism-javascript.js')
+    script(src='bower_components/prism/components/prism-bash.js')
+
+    script(src='bower_components/angular/angular.min.js')
+    script(src='bower_components/angular-route/angular-route.min.js')
+    script(src='scripts/main.js')
