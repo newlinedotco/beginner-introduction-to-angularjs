@@ -126,11 +126,11 @@ html
         span.the_bad the bad
         ul
           li tight coupling
-          li still dependent upon jquery
+          li still dependent upon jquery/zepto
           li still requires a LOT of boilerplate
 
       section
-        h2 How <i>should</i> we do it then?
+        h2 How <em>should</em> we do it then?
 
       section
         h2 What if we <span>reinvented</span> HTML
@@ -148,6 +148,7 @@ html
           li Routing
           li Promises
           li XHR
+          li Services
           li Testing
 
       section.angularjs_is
@@ -299,6 +300,52 @@ html
             <input type="text" 
                   ng-model="name" 
                   placeholder="Enter a name here" />
+
+      section
+        h1 Getting started on our app
+
+      section
+        h2 requirements
+        ul
+          li node (for npm)
+
+      section
+        code.language-bash
+          pre.
+            $ mkdir myapp && cd $_
+            $ touch index.html
+            $ mkdir {js,css}
+
+      section
+        h2 Running the thing
+        code.language-bash
+          pre.
+            $ python -m SimpleHTTPServer 9000
+
+      section
+        h2 Bower
+        code.language-bash
+          pre.
+            $ npm install -g bower
+
+      section
+        h2 Getting angular
+        code.language-bash
+          pre.
+            $ bower install angular
+
+      section
+        img(src="images/bower.png")
+
+      section
+        code.language-markup
+          pre.
+            <script src="bower_components/angular/angular.min.js"></script>
+
+      section
+        h2 Template code
+        a(class="large", href="https://gist.github.com/auser/7087370") 
+          | https://gist.github.com/auser/7087370
 
       section
         h2 What? No javascript?
@@ -472,7 +519,8 @@ html
             </div>
 
       section(ng-non-bindable)
-        h2 Including directives and the {{ }}
+        h3 
+          | Including directives and the {{ }} templates
 
       section
         h2 What the eff is a <span>directive</span>?
@@ -646,6 +694,32 @@ html
             | The h2 is not hiding
 
       section
+        h2 ng-class
+        p.left_text
+          | The <span>ng-class</span> directive
+          | allows us to assign different <em>css</em>
+          | classes to elements based upon the 
+          | evaluation of an expression
+
+      section
+        code.language-markup
+          pre.
+            <div ng-controller="DemoCtrl">
+              <label>Make <em>shouldBeRed</em> true</label>
+              <input ng-model="shouldBeRed" type="checkbox">
+              <div ng-class="{red: shouldBeRed}">
+                Red div
+              </div>
+            </div>
+
+      section
+        div(ng-controller="DemoCtrl")
+          label(for="") Make <em>shouldBeRed</em> true
+          input(ng-model="shouldBeRed",type="checkbox")
+          div(ng-class="{red: shouldBeRed}")
+            | Red div
+
+      section
         h3
           | There are many more built-in and 
           | community directives
@@ -654,11 +728,15 @@ html
           li ng-view
           li ng-if
           li ng-switch
-          li ng-class
+          li ng-include
           li more...
 
       section
         h2 Expressions?
+        code.language-markup
+          pre.
+            <div ng-show="shouldShowDiv"></div>
+            <div ng-class="{red: shouldShowDiv}"></div>
 
       section
         h3 Expressions are javascript functions
@@ -996,7 +1074,9 @@ html
             });
 
       section
-        h2 There's a lot to learn
+        h2 ng-book.com: The Complete Book on AngularJS
+        img(style="margin-top: 1.2em;height:400px;width:250px;",src="http://www.ng-book.com/images/flatbook-ngbook-small.png")
+        a(href="http://ng-book.com") ng-book.com
 
       section
         h2 yeoman
@@ -1006,6 +1086,9 @@ html
             $ npm install -g generator-angular
             $ mkdir myapp && cd $_
             $ yo angular
+
+      section
+        h1 Demo time!
 
       section
         h1 Questions?
