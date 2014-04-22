@@ -18,5 +18,24 @@
   },
   "engines": {
     "node": ">=0.8.0"
-  }
+  },
+  "scripts": {
+    "start": "grunt server",
+    "postinstall": "grunt build"
+  },
+  "description": "> A [Bespoke.js](http://markdalgleish.com/projects/bespoke.js) presentation, built with [generator-bespoke](https://github.com/markdalgleish/generator-bespoke)",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fullstackio/beginner-introduction-to-angularjs.git"
+  },
+  "author": "Ari Lerner",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fullstackio/beginner-introduction-to-angularjs/issues"
+  },
+  "homepage": "https://github.com/fullstackio/beginner-introduction-to-angularjs"
 }
