@@ -1,0 +1,215 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>AngularJS, the awesome parts</title><link rel="stylesheet" type="text/css" href="bower_components/prism/themes/prism-coy.css"><link href="http://fonts.googleapis.com/css?family=Permanent+Marker|Crafty+Girls|Bubbler+One|Open+Sans" rel="stylesheet" type="text/css"><link rel="stylesheet" type="text/css" href="styles/main.css"></head><body ng-app="myApp"><article><section class="intro"><h1>AngularJS, the awesome parts</h1><div class="byline">Ari Lerner
+ari@fullstack.io</div></section><section class="author"><h2 class="byline">Ari Lerner</h2><ul><li>Co-founder of Fullstack.io</li><li>Author of ng-book, ng-newsletter.com</li><li>Riding Rails on AngularJS, and</li><li>D3 on AngularJS</li><li>Instructor at HackReactor</li><li>HackBright, Dev Bootcamp, etc.</li><li>Back-end devloper by trade</li></ul></section><section class="html_old"><h1>HTML is old</h1><h3>Older than some of us</h3></section><section><code class="language-markup"><pre>&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Hello World&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1 class=&quot;notice&quot;&gt;Static HTML&lt;/h1&gt;
+    &lt;button&gt;Click me&lt;/button&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre></code></section><section class="static"><h2>It's <span>static</span> markup</h2></section><section class="webapp"><h2>webapp?</h2></section><section class="interactive_1"><h2>Interaction</h2></section><section class="interactive_2"><h2 class="add">How we add</h2><h2>Interaction</h2><h2 class="today">today?</h2></section><section><h2>javascript</h2><code class="language-javascript"><pre>var content =
+  document.getElementById('content')[0],
+  newDiv = document.createElement(&quot;div&quot;);
+// Do interesting things to
+// the newDiv here
+content.appendChild(newDiv);
+</pre></code></section><section><h3>if you're really badass</h3><h4>&nbsp;</h4></section><section><h3>if you're really badass</h3><h4> <span>we all are, right?</span></h4></section><section><h2>jQuery</h2><code class="language-javascript"><pre>$(&quot;div.animated&quot;).on('click', function(evt) {
+  $(this).appendChild(&quot;&lt;div&gt;&lt;/div&gt;&quot;);
+});
+</pre></code></section><section><h2>An imperative wrapper around DOM manipulation</h2></section><section><h2>not a webapp maker</h2><h3>when all you have is jQuery, everything
+looks like a DOM to manipulate</h3></section><section><h2>What's wrong with this?</h2><div class="bullet"></div><h3 class="bullet">tight coupling</h3><h3 class="bullet">structureless codebase</h3><h3 class="bullet">low-level interaction</h3></section><section><h1>How rudimentary!</h1></section><section><h2>How <em>should</em> we do it then?</h2></section><section><h2>What if we <span>reinvented</span> HTML</h2></section><section><h2>Enter <span>AngularJS</span></h2></section><section><h2>A MVW front-end framework</h2></section><section class="fast"><h2><em>super</em> fast</h2><h4>in development and applications</h4></section><section class="supported_by"><h2>Sponsored by Google</h2><h4>and in-production all-over-the-internet</h4></section><section><img src="images/livelovely.png"></section><section><img src="images/kanga.png"></section><section><img src="images/meal.png"></section><section><img src="images/source.png"></section><section class="cost_efficient"><h2>Cost efficient</h2><h4>for development and production applications</h4></section><section class="test_driven"><h2>Built from the start with testing in-mind</h2><h4>with fantastic built-in tools for testing</h4></section><section class="community"><h2>Highly active community</h2><h4>with many open-source components</h4></section><section class="free"><h2>Completely free</h2><h4>seriously, MIT licensed</h4></section><section><h1 class="notice">Static HTML</h1>
+<button>Click me</button></section><section><code class="language-markup"><pre>&lt;h1 class=&quot;notice&quot;&gt;Static HTML&lt;/h1&gt;
+&lt;button&gt;Click me&lt;/button&gt;
+</pre></code></section><section><h2>Elements</h2><code class="language-markup"><pre>&lt;h1&gt;&lt;/h1&gt;
+&lt;button&gt;&lt;/button&gt;
+</pre></code></section><section><h2>Method calls</h2><code class="language-javascript"><pre>h1()
+button();
+</pre></code></section><section><h2>Attributes</h2><code class="language-javascript"><pre>class=&quot;notice&quot;
+</pre></code></section><section class="args"><h2>Arguments</h2><code class="language-javascript"><pre>h1(&quot;Static HTML&quot;)
+</pre></code></section><section class="first_app"><h2>Our first angular app</h2></section><section ng-non-bindable class="first_app"><code class="language-markup"><pre>&lt;!doctype html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;First app&lt;/title&gt;
+    &lt;script src=&quot;angular.min.js&quot;&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body ng-app&gt;
+    &lt;div&gt;
+      &lt;input type=&quot;text&quot;
+            ng-model=&quot;name&quot;
+            placeholder=&quot;Enter a name here&quot; /&gt;
+      &lt;h1&gt;Hello {{ name }}!&lt;/h1&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre></code></section><section ng-app="myApp" class="first_app"><input type="text" ng-model="name" placeholder="Enter a name here"><hr><h1>Hello {{ name }}!</h1></section><section><code class="language-markup"><pre>&lt;body ng-app&gt;
+</pre></code></section><section><code class="language-markup"><pre>&lt;input type=&quot;text&quot;
+      ng-model=&quot;name&quot;
+      placeholder=&quot;Enter a name here&quot; /&gt;
+      </pre></code></section><section><code class="language-markup"><pre>&lt;script src=&quot;bower_components/angular/angular.min.js&quot;&gt;&lt;/script&gt;
+</pre></code></section><section><h2>Angular app / module</h2></section><section><h2>Javascript</h2><code class="language-javascript"><pre>// Setter
+angular.module('myApp', []);
+// Getter
+angular.module('myApp')
+</pre></code></section><section ng-non-bindable><h2>Calling it</h2><code class="language-markup"><pre>&lt;body ng-app=&quot;myApp&quot;&gt;
+</pre></code></section><section ng-non-bindable><h1>data-binding</h1></section><section><h2>The <span>$scope</span></h2></section><section><h2>A <span>P</span>lain <span>O</span>ld <span>J</span>avascript <span>O</span>bject</h2><h4>We can write simple javascript to interact
+with our $scope</h4></section><section><h2>A <span>POJO</span></h2><h4>We can write simple javascript to interact
+with our $scope</h4></section><section><h2>How do we get access to the <span>$scope</span></h2></section><section ng-non-bindable><h2>Controllers</h2></section><section><h2>This <em>$scope</em> is the
+controller's Model object</h2></section><section ng-non-bindable><h2>Controllers</h2><code class="language-javascript"><pre>angular.module('myApp')
+.controller('DemoController', function($scope) {
+  $scope.name = &quot;Ari&quot;;
+});
+</pre></code></section><section ng-non-bindable><h2>Calling it</h2><code class="language-markup"><pre>&lt;div ng-controller=&quot;DemoController&quot;&gt;
+  &lt;h1&gt;Hello {{ name }}&lt;/h1&gt;
+&lt;/div&gt;
+</pre></code></section><section><div ng-controller="DemoController"><h1>Hello {{ name }}</h1></div></section><section ng-non-bindable><h2>Interaction</h2><code class="language-javascript"><pre>controller('DemoController', function($scope) {
+  $scope.sayHello = function() {
+    alert(&quot;Hello &quot; + $scope.name);
+  }
+});
+</pre></code></section><section ng-non-bindable><h2>Calling it</h2><code class="language-markup"><pre>&lt;div ng-controller=&quot;DemoController&quot;&gt;
+  &lt;button ng-click=&quot;sayHello()&quot;&gt;
+    Say hello
+  &lt;/button&gt;
+&lt;/div&gt;
+</pre></code></section><section><h3>controller('DemoController', function($scope) {}</h3><h3>&nbsp;</h3></section><section><h3>controller('DemoController', function(<span>$scope</span>) {}</h3><h3>&nbsp;</h3></section><section><h3>controller('DemoController', function(<span>$scope</span>) {}</h3><h3><span>Dependency Injection</span></h3></section><section><div ng-controller="DemoController"><button ng-click="sayHello()">Say hello</button></div></section><section><h2>Views</h2></section><section><h2>Just HTML</h2></section><section ng-non-bindable><code class="language-markup"><pre>&lt;div ng-controller=&quot;DemoController&quot;&gt;
+  &lt;h1&gt;Hello {{ name }}&lt;/h1&gt;
+&lt;/div&gt;
+</pre></code></section><section ng-non-bindable><h3>Including directives and the {{ }} templates</h3></section><section ng-non-bindable><h3>Including <span>directives</span> and the 
+<span>{{ }}</span> bindings</h3></section><section><h2>What the eff is a <span>directive</span>?</h2></section><section ng-non-bindable><h3>A directive is a <span>function</span>
+that is called on a DOM element
+to augment it's functionality</h3></section><section><h2>A directive is a <span>function</span></h2></section><section><h3>repeat...</h3><h2>A directive is a <em>function</em></h2></section><section><h2><span>function</span></h2></section><section ng-non-bindable><h2>Directives</h2><code class="language-markup"><pre>&lt;div ng-controller=&quot;DemoController&quot;&gt;
+  &lt;button ng-click=&quot;sayHello()&quot;&gt;
+    Say hello
+  &lt;/button&gt;
+  &lt;input ng-model=&quot;name&quot;
+        type=&quot;text&quot; /&gt;
+  &lt;h1&gt;Hello {{ name }}&lt;/h1&gt;
+&lt;/div&gt;
+</pre></code></section><section ng-non-bindable><h2>Directives</h2><code class="language-javascript"><pre>ng-controller=&quot;DemoController&quot;
+ng-click=&quot;sayHello()&quot;
+ng-model=&quot;name&quot;
+</pre></code></section><section ng-non-bindable><h2>Directives</h2><code class="language-javascript"><pre>ng-controller(&quot;DemoController&quot;)
+ng-click(&quot;sayHello()&quot;)
+ng-model(&quot;name&quot;)
+</pre></code></section><section ng-non-bindable><h2>Built-in directives</h2></section><section ng-non-bindable><h2>ng-controller</h2><p class="left_text">The <span>ng-controller</span> is used to
+place a controller on to the DOM element</p></section><section ng-non-bindable><code class="language-markup"><pre>&lt;div ng-controller=&quot;DemoController&quot;&gt;
+  &lt;input type=&quot;text&quot;
+      ng-model=&quot;name&quot;
+      placeholder=&quot;Name&quot; /&gt;
+  Hello {{ name }}
+&lt;/div&gt;
+&lt;div ng-controller=&quot;DemoController&quot;&gt;
+  &lt;input type=&quot;text&quot;
+      ng-model=&quot;name&quot;
+      placeholder=&quot;Name&quot; /&gt;
+  Second {{ name }}
+&lt;/div&gt;
+</pre></code></section><section><div ng-controller="DemoController" class="half"><input type="text" ng-model="name" ng-init="name='Ari'" placeholder="Name"><div>Hello {{ name }}</div></div><div ng-controller="DemoController" class="half"><input type="text" ng-model="name" ng-init="name='Steve'" placeholder="Name"><div>Second hello {{ name }}</div></div></section><section ng-non-bindable><h2>ng-click</h2><p class="left_text">Use <span>ng-click</span> to specify a method
+or expression to run on the
+containing scope when the element
+is clicked.</p></section><section ng-non-bindable><code class="language-markup"><pre>&lt;div ng-controller=&quot;DemoController&quot;&gt;
+  Click count: {{ count }}
+  &lt;button ng-click=&quot;count=count+1&quot;&gt;
+    Click on this button
+  &lt;/button&gt;
+&lt;/div&gt;
+</pre></code></section><section><div ng-controller="DemoController" ng-init="count=0"><p>Click count: {{ count }}</p><button ng-click="count=count+1">Click on this button</button></div></section><section><h2>ng-repeat</h2><p class="left_text">Use <span>ng-repeat</span> to iterate
+over a collection and instantiate a
+new template for each item in
+the collection. Each item in the
+collection is given it's own
+template and it's own scope.</p></section><section ng-non-bindable><code class="language-markup"><pre>&lt;div ng-controller=&quot;DemoController&quot;&gt;
+  &lt;table&gt;
+    &lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;Email&lt;/th&gt;&lt;/tr&gt;
+    &lt;tr ng-repeat=&quot;person in people&quot;&gt;
+      &lt;td&gt;{{ person.name }}&lt;/td&gt;
+      &lt;td&gt;{{ person.email }}&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+</pre></code></section><section><h3>Where <span>$scope.people</span> is:</h3><code class="language-javascript"><pre>$scope.people = [
+  {name: &quot;Ari&quot;, email: &quot;ari@fullstack.io&quot; },
+  {name: &quot;Nate&quot;, email: &quot;nate@fullstack.io&quot; }
+];
+</pre></code></section><section><div ng-controller="DemoController"><table class="left_text"><thead><tr><th>Name</th><th>Email</th></tr></thead><tbody></tbody><tr ng-repeat="person in people"><td>{{ person.name }}</td><td>{{ person.email }}</td></tr></table></div></section><section><h2>ng-show/ng-hide</h2><p class="left_text">We'll use <span>ng-show</span> and
+<span>ng-hide</span> to show and hide
+a DOM element based upon the expression
+provided and how it evaluates in the
+angular scope.</p></section><section ng-non-bindable><code class="language-markup"><pre>&lt;div ng-controller=&quot;DemoController&quot;&gt;
+  &lt;h1 ng-show=&quot;shouldShowDiv&quot;
+      ng-click=&quot;shouldShowDiv=!shouldShowDiv&quot;&gt;
+        The h1 is showing
+  &lt;/h1&gt;
+  &lt;h2 ng-hide=&quot;shouldShowDiv&quot;
+      ng-click=&quot;shouldShowDiv=!shouldShowDiv&quot;&gt;
+        The h2 is not hiding
+  &lt;/h2&gt;
+&lt;/div&gt;
+</pre></code></section><section><div ng-controller="DemoController" ng-init="shouldShowDiv=true"><h1 ng-show="shouldShowDiv" ng-click="shouldShowDiv=!shouldShowDiv">The h1 is showing</h1><h2 ng-hide="shouldShowDiv" ng-click="shouldShowDiv=!shouldShowDiv">The h2 is not hiding</h2></div></section><section><h3>There are many more built-in and
+community directives</h3><ul><li>ng-init</li><li>ng-view</li><li>ng-class</li><li>ng-if</li><li>ng-switch</li><li>ng-include</li><li>more...</li></ul></section><section ng-non-bindable><h2>Custom Directives</h2></section><section><h3>function(<span>$scope</span>) {}</h3></section><section ng-non-bindable><h3>Okay, wtf is</h3><h2>&nbsp; </h2></section><section ng-non-bindable><h3>Okay, wtf is </h3><h2><span>dependency injection</span></h2></section><section><h3>Remember defining controllers?</h3><code class="language-javascript"><pre>angular.module('myApp')
+.controller('DemoController', function($scope) {
+  $scope.name = &quot;Ari&quot;;
+});
+
+</pre></code></section><section><h3>We can inject all of our dependencies
+in this way</h3><h3>function(<span>$scope</span>, <span>$q</span>, <span>$http</span>) {}</h3></section><section><h3>How?</h3></section><section><code class="language-javascript"><pre>/^\s*(_?)(\S+?)\1\s*$/
+</pre></code></section><section><h1>XHR</h1></section><section><h2>Use data from around the web</h2></section><section ng-controller="DemoController"><button ng-click="getWeather()">Get weather</button><div ng-show="weather"><p><h4>High: {{ weather.temp.max }}</h4><h4>Low: {{ weather.temp.min }}</h4><h4>Humidity: {{ weather.humidity }}</h4><h4>{{ weather.weather[0].description | uppercase }}</h4></p></div></section><section><h2><span>$http</span></h2><p>The <span>$http</span> service provides
+high-level access to the browser's
+raw XMLHttpRequest object.</p></section><section><h2>We can make requests of all sorts</h2><ul><li>GET</li><li>POST</li><li>PUT</li><li>JSONP</li><li>DELETE</li><li>HEAD</li></ul></section><section><h2><span>$http</span> returns a promise</h2></section><section><h2>XHR is asynchronous</h2><h3>&nbsp;</h3></section><section><h2>XHR is asynchronous</h2><h3>which is a good thing</h3></section><section><h4>Blocked websites are <span>broken</span></h4></section><section><h2>Promises to the rescue</h2></section><section><h3>A promise is a pointer to data that
+will be fulfilled <span>eventually</span></h3></section><section><h1>Super short intro to promises</h1></section><section><h3>Javascript generally suffers from callback
+hell and the case of the mysteriously
+disappearing errors</h3></section><section><code class="language-javascript"><pre>$.getJSON(url, {id:trackID, api_key:apiKey}, function(data) {
+    var analysisURL = data.response.track.audio_summary.analysis_url;
+    track = data.response.track;
+    $.getJSON(&quot;http://query.yahooapis.com/v1/public/yql&quot;,
+      { 
+        q: &quot;select * from json where url=\&quot;&quot; + analysisURL + &quot;\&quot;&quot;, 
+        format: &quot;json&quot;
+      }, function(data) {
+        track.analysis = data.query.results.json;
+    });
+});
+</pre></code></section><section><h2><span>$http</span></h2><code class="language-javascript"><pre>$scope.getWeather = function() {
+  var url = &quot;http://api.openweathermap.org/data/2.5/&quot;+
+            &quot;forecast/daily?mode=json&quot; +
+            &quot;&amp;units=imperial&amp;cnt=1&quot; +
+            &quot;&amp;callback=JSON_CALLBACK&quot; +
+            &quot;&amp;q=&quot;
+  $http({
+    method: 'JSONP',
+    url: url + &quot;San Francisco, CA&quot;
+  }).success(function(data, status) {
+    $scope.weather = data.list[0];
+  }).error(function(data, status) {
+    $scope.error = data; // Be nice and handle errors
+  });
+}
+</pre></code></section><section><h3>Promises are built into Angular</h3></section><section><h3>Turn</h3><code class="language-javascript"><pre>$http.get('/users.json', function(data) {
+  // Handle successful request
+}, function(error) {
+  // Handle errors here
+});
+</pre></code></section><section><h3>into</h3><code class="language-javascript"><pre>$http.get('/users.json)
+.then(function(data) {
+  // Handle success here
+});
+</pre></code></section><section><h1>Testing</h1></section><section><h2>Angular has fantastic support for testing</h2></section><section><h2>Jasmine</h2><p>Jasmine is a bdd framework for javascript
+and works out-of-the-box with karma.</p><p>Jasmine provides expectations, matchers,
+and a great testing framework</p></section><section><h2>End-to-end testing</h2></section><section><code class="language-javascript"><pre>describe('Test our view', function() {
+  // Test that our browser loads
+});
+</pre></code></section><section><h3>Before every test, navigate to /</h3><code class="language-javascript"><pre>beforeEach(function() {
+  // Navigate home
+  browser().navigateTo('/');
+});
+</pre></code></section><section><h3>Set an expectation that there's a form</h3><code class="language-javascript"><pre>it('should load', function() {
+  expect(
+    element('body').html()
+  ).toContain('form');
+});
+</pre></code></section><section><h2>ng-book.com: The Complete Book on AngularJS</h2><img style="margin-top: 1.2em;height:400px;width:250px;" src="http://www.ng-book.com/images/flatbook-ngbook-small.png"><a href="http://ng-book.com">ng-book.com</a></section><section><h3>https://www.ng-book.com</h3></section><section><h2>yeoman</h2><code class="language-bash"><pre>$ npm install -g yo
+$ npm install -g generator-angular
+$ mkdir myapp &amp;&amp; cd $_
+$ yo angular
+</pre></code></section><section><h1>Questions?</h1></section><section><h1>Thanks!</h1></section></article><script src="bower_components/bespoke.js/dist/bespoke.min.js"></script><script src="bower_components/bespoke-bullets/dist/bespoke-bullets.min.js"></script><script src="bower_components/bespoke-scale/dist/bespoke-scale.min.js"></script><script src="bower_components/bespoke-hash/dist/bespoke-hash.min.js"></script><script src="bower_components/bespoke-progress/dist/bespoke-progress.min.js"></script><script src="bower_components/bespoke-state/dist/bespoke-state.min.js"></script><script src="bower_components/prism/prism.js"></script><script src="bower_components/prism/components/prism-ruby.js"></script><script src="bower_components/prism/components/prism-markup.js"></script><script src="bower_components/prism/components/prism-javascript.js"></script><script src="bower_components/prism/components/prism-bash.js"></script><script src="bower_components/angular/angular.min.js"></script><script src="bower_components/angular-route/angular-route.min.js"></script><script src="scripts/main.js"></script></body></html>
