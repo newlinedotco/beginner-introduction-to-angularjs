@@ -54,6 +54,8 @@ progress_bar_color = light_orange
 
 // bespoke.js layout styles
 
+.author
+  background: red
 article
   // transition: background slide_transition_length slide_transition_easing
   display: none
@@ -70,6 +72,8 @@ article
       overflow: visible
       position: static
     perspective: 600px
+    &.intro
+      background: green
 
 .bespoke-slide
   transition:
@@ -99,7 +103,7 @@ article
     page-break-before: always
     position: static
     margin: 0
-  
+
 .bespoke-before
   // transform: translateX(slide_transition_nudge_x * -1) translateX(slide_width / -2) rotateY(slide_transition_rotate_y * -1) translateX(slide_width / -2)
 

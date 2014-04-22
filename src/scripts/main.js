@@ -1,21 +1,12 @@
 bespoke.horizontal.from('article', {
-  bullets: 'li, .bullet',
+  // bullets: 'li, .bullet',
   scale: true,
   hash: true,
   progress: true,
   state: true
 });
 
-angular.module('myApp', ['ngRoute'])
-.config(function($routeProvider) {
-  $routeProvider.when('/first', { 
-    template: '<h1>First route</h1>', 
-    controller: 'FirstCtrl' 
-  }).when('/second', {
-    template: '<h1>Second route</h1>', 
-    controller: 'SecondCtrl'
-  });
-})
+angular.module('myApp', [])
 .factory('MyService', function() {
   var service = {
     sayHello: function() {
@@ -24,7 +15,7 @@ angular.module('myApp', ['ngRoute'])
   }
   return service;
 })
-.controller('DemoCtrl', function($scope, $http) {
+.controller('DemoController', function($scope, $http) {
   $scope.name = "Ari";
   $scope.sayHello = function() {
     alert("Hello " + $scope.name);
@@ -35,7 +26,7 @@ angular.module('myApp', ['ngRoute'])
     {name: "Nate", email: "nate@fullstack.io" }
   ];
 
-  $scope.city = "San Francisco, CA";
+  $scope.city = "Los Angeles, CA";
   $scope.getWeather = function() {
     var url = "http://api.openweathermap.org/data/2.5/forecast/daily?mode=json&units=imperial&cnt=7&callback=JSON_CALLBACK&q="
     $http({
@@ -47,17 +38,17 @@ angular.module('myApp', ['ngRoute'])
     });
   }
 })
-.controller('ParentCtrl', function($scope) {
+.controller('ParentController', function($scope) {
   $scope.name = "Q";
   $scope.geo = "San Francisco";
 })
-.controller('ChildCtrl', function($scope) {
+.controller('ChildController', function($scope) {
   $scope.name = "Ari";
 })
-.controller('FirstCtrl', function($scope) {
+.controller('FirstController', function($scope) {
 })
-.controller('SecondCtrl', function($scope) {
+.controller('SecondController', function($scope) {
 })
-.controller('ServicesCtrl', function($scope, MyService) {
+.controller('ServicesController', function($scope, MyService) {
   $scope.greeting = MyService.sayHello();
 });

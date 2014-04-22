@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+  <head>
+    <title>First app</title>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/d3/d3.min.js"></script>
+    <link rel="stylesheet" href="bower_components/bootstrap-sass/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body ng-app="myApp">
+    <div ng-controller='MainController' class='row'>
+      <div class="col-md-8">
+        <h3>Joke stream</h3>
+        <ul class='list-horizontal'>
+          <img ng-repeat="cat in cats" ng-click='addToFavorites(joke)' 
+            ng-src="{{ cat }}">
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h3>Your favorites</h3>
+        <ul class="list-horizontal">
+          <p ng-repeat='favorite in favorites'>
+            {{ favorite.joke }}
+          </p>
+        </ul>
+      </div>
+    </div>
+    <script src="js/main.js"></script>
+  </body>
+</html>
