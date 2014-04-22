@@ -3,8 +3,7 @@ bespoke.horizontal.from('article', {
   scale: true,
   hash: true,
   progress: true,
-  state: true,
-  remote: true
+  state: true
 });
 
 angular.module('myApp', [])
