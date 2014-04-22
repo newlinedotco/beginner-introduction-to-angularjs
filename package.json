@@ -13,20 +13,17 @@
     "grunt-open": "~0.2.1",
     "grunt-concurrent": "~0.3.0",
     "grunt-gh-pages": "~0.6.0",
-    "connect-livereload": "~0.2.0"
+    "connect-livereload": "~0.2.0",
+    "grunt-cli": "~0.1.13"
   },
   "engines": {
     "node": ">=0.8.0"
   },
   "scripts": {
-    "start": "grunt server",
-    "postinstall": "npm install" 
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "description": "> A [Bespoke.js](http://markdalgleish.com/projects/bespoke.js) presentation, built with [generator-bespoke](https://github.com/markdalgleish/generator-bespoke)",
   "main": "Gruntfile.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/fullstackio/beginner-introduction-to-angularjs.git"
