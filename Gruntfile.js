@@ -101,6 +101,7 @@ module.exports = function(grunt) {
               require('connect-livereload')({
                 port: config.watch.public.options.livereload
               }),
+              require('./src/remote')(),  // remote control
               connect.static(options.base)
             ];
           }
