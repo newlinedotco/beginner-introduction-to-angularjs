@@ -9,7 +9,7 @@ First, ensure you have the following installed:
 2. [Bower](http://bower.io): `$ npm install -g bower`
 3. [Grunt](http://gruntjs.com): `$ npm install -g grunt-cli`
 
-Then, install dependencies and run the preview server:
+Then, install dependencies and run the preview server on computer:
 
 ```bash
 $ npm install && bower install
